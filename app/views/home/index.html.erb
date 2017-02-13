@@ -2,5 +2,7 @@
 <p>Find me in app/views/home/index.html.erb</p>
 
 <% @photo_links.each do |photo_location| %>
-  <%= image_tag(photo_location) %>
+  <% if photo_location != nil %>
+    <%= image_tag(photo_location) %>
+  <% end %>
 <% end %>

@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @photo_links = []
-    photos = flickr.photos.search(text: 'beach', per_page: 5, page: 1, extras: 'url_c')
+    photos = flickr.photos.search(text: 'road', per_page: 5, page: 1, extras: 'url_c')
     photos.each do |photo|
       @photo_links << photo['url_c']
     end
