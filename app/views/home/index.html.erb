@@ -1,9 +1,22 @@
-<% if @photo_links.empty? %>
-
-<% else %>
-  <% @photo_links.each do |photo_location| %>
-    <% if photo_location != nil %>
-      <%= image_tag(photo_location) %>
+ <div class="container">
+  <% if !@photo_links %>
+    <div class="jumbotron">
+      <h1>Flicker Photos Search Service</h1>
+      <p>Get beautiful flicker photos by simple search</p>
+      <%= form_tag({action: 'search'}, {class: "form-group"})  do %>
+        <%= text_field_tag 'search', '', placeholder: "Search photos", class: "form-control input-lg" %>
+        <%= submit_tag "Submit", class: 'btn btn-default' %>
+      <% end %>
+    </div>
+  <% else %>
+    <% @photo_links.each do |photo_location| %>
+      <% if photo_location != nil %>
+        <div class="col-xs-6 col-md-6">
+          <a href="<%= photo_location %>" class="thumbnail">
+            <%= image_tag photo_location, class: 'img-responsive' %>
+          </a>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>
