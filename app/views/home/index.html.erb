@@ -5,6 +5,7 @@
       <p>Get beautiful flicker photos by simple search</p>
       <%= form_tag({action: 'search'}, {class: "form-group"})  do %>
         <%= text_field_tag 'search', '', placeholder: "Search photos", class: "form-control input-lg" %>
+        <br/>
         <%= submit_tag "Submit", class: 'btn btn-default' %>
       <% end %>
     </div>
