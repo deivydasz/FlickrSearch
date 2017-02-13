@@ -15,6 +15,10 @@
           <a class="navbar-brand" href="<%= root_path %>">
             <img alt="Flicker Search Service" src="">
           </a>
+          <%= form_tag({action: 'search'}, {class: 'navbar-form navbar-left' })  do %>
+            <%= text_field_tag 'search', '', placeholder: "Search photos", class: "form-control" %>
+            <%= submit_tag "Submit", class: 'btn btn-default' %>
+          <% end %>
         </div>
       </div>
     </nav>
