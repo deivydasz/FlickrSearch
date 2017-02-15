@@ -4,13 +4,28 @@ class HomeController < ApplicationController
   end
 
   def search
-    params[:search].present? ? search = params[:search] : search = "dogs"
+    if params[:search].present? 
+      session[:search] = params[:search]
+      produce_photo_links(session[:search])
+    else
+      if session[:search].present?
+        produce_photo_links(session[:search])
+        flash[:warning] = "Since you didnt provide new search we are showing your last search results"
+      else
+        flash[:warning] = "You did not provide search"
+      end
+    end
+    render :index
+  end
+
+  private 
+
+  def produce_photo_links(search)
     @photo_links = []
     photos = flickr.photos.search(text: search, per_page: 10, page: 1, extras: 'url_z')
     photos.each do |photo|
       @photo_links << photo['url_z']
     end
-    render :index
   end
 
 end

@@ -24,15 +24,10 @@ RSpec.describe HomeController, type: :controller do
   end
 
   describe 'Empty input' do
-    let(:empty_search) { '' }
-    let(:flickr_photos) { double }
-    let(:photos) { [] }
-    let(:search_params) { {text: 'dogs', per_page: 10, page: 1, extras: 'url_z'} }
-
-    it 'allows search' do
-      expect(flickr).to receive(:photos).and_return(flickr_photos)
-      expect(flickr_photos).to receive(:search).with(search_params).and_return(photos)
-      get :search, params: {search: empty_search}
+    
+    it 'returns warning' do
+      post :search, params: { search: '' }
+      expect(flash[:warning]).to be_present
     end
 
   end
