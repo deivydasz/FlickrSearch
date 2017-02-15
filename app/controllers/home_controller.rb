@@ -22,7 +22,7 @@ class HomeController < ApplicationController
 
   def produce_photo_links(search)
     @photo_links = []
-    photos = flickr.photos.search(text: search, per_page: 10, page: 1, extras: 'url_z')
+    photos = flickr.photos.search(text: search, per_page: 10, page: 1, safe_search: 1, extras: 'url_z')
     photos.each do |photo|
       @photo_links << photo['url_z']
     end

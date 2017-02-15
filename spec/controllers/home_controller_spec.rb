@@ -14,7 +14,7 @@ RSpec.describe HomeController, type: :controller do
     let(:search) { 'dog' }
     let(:flickr_photos) { double }
     let(:photos) { [] }
-    let(:search_params) { {text: search, per_page: 10, page: 1, extras: 'url_z'} }
+    let(:search_params) { {text: search, per_page: 10, page: 1, safe_search: 1, extras: 'url_z'} }
 
     it 'allows search' do
       expect(flickr).to receive(:photos).and_return(flickr_photos)
