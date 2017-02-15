@@ -10,9 +10,9 @@ class HomeController < ApplicationController
     else
       if session[:search].present?
         produce_photo_links(session[:search])
-        flash[:warning] = "Since you didnt provide new search we are showing your last search results"
+        flash.now[:warning] = "Since you didnt provide new search we are showing your last search results"
       else
-        flash[:warning] = "You did not provide search"
+        flash.now[:warning] = "You did not provide search"
       end
     end
     render :index
