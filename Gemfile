@@ -55,4 +55,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'flickraw', '~> 0.9.9'
 gem 'bootstrap-sass', '~> 3.3.7'
+gem 'masonry-rails', '~> 0.2.4'
 
