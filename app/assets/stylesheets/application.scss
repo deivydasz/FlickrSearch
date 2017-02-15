@@ -16,3 +16,19 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.photos { 
+  margin: 0 auto;
+  width: 100%;
+  .box {
+    margin: 7px;
+    width: 450px;
+    border-radius: 2px;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+  }
+}

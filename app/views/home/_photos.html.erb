@@ -1,9 +1,12 @@
-<% @photo_links.each do |photo_location| %>
-  <% if photo_location != nil %>
-    <div class="col-xs-6 col-md-6">
-      <a href="<%= photo_location %>" class="thumbnail">
-        <%= image_tag photo_location, class: 'img-responsive' %>
-      </a>
-    </div>
+<div class="col-md-12">
+  <div class="photos">
+  <% @photo_links.each do |photo_location| %>
+    <% if photo_location != nil %>
+      <div class="col-xs-6 col-md-3">
+        <div class="box panel panel-default">
+          <%= link_to (image_tag photo_location), photo_location %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
