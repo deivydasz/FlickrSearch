@@ -1,0 +1,9 @@
+<% @photo_links.each do |photo_location| %>
+  <% if photo_location != nil %>
+    <div class="col-xs-6 col-md-6">
+      <a href="<%= photo_location %>" class="thumbnail">
+        <%= image_tag photo_location, class: 'img-responsive' %>
+      </a>
+    </div>
+  <% end %>
+<% end %>
